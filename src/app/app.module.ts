@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SingInComponent } from './sing-in/sing-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { LogBtnComponent } from './log-btn/log-btn.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SingInComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    LogBtnComponent
   ],
   imports: [
     BrowserModule,

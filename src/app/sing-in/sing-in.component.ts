@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './sing-in.component.css'
 })
 export class SingInComponent {
-
+  
 }
