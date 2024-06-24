@@ -186,6 +186,7 @@ img {
 	border: 1px solid white;
 }
 .number {
+	font-family: Inter;
 	text-align: center;
 	font-weight: 600;
 	font-size: 16px;
@@ -204,12 +205,14 @@ img {
 	flex-direction: column;
 }
 .Telegram-id-title {
+	font-family: Inter;
 	font-weight: 600;
 	font-size: 16px;
 	text-align: center;
 	margin: 0;
 }
 .Telegram-id-subtitle {
+	font-family: Inter;
 	font-weight: 400;
 	font-size: 14px;
 	text-align: center;
@@ -225,11 +228,13 @@ img {
 
 }
 .stats-text-title {
+	font-family: Inter;
 	font-weight: 400;
 	font-size: 14px;
 	text-align: center;
 }
 .stats-text-subtitle {
+	font-family: Inter;
 	font-weight: 600;
 	font-size: 16px;
 	text-align: center;

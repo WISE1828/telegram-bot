@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { SingInComponent } from './sing-in/sing-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { LogBtnComponent } from './log-btn/log-btn.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LogBtnComponent } from './log-btn/log-btn.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()

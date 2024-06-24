@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TelegramService } from '../services/telegram.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -10,16 +11,26 @@ import { TelegramService } from '../services/telegram.service';
 })
 
 export class LogBtnComponent {
-  telegram_id = "asd"
+  request = 'Ничего'
+  response: any
+  telegram_id = 'Ничего'
+
   telegram = inject(TelegramService)
   
-  constructor() { 
-    // this.id =  this.telegram.initData.id();
-    this.telegram?.MainButton?.show();
+  constructor(private http: HttpClient) { 
+    
   }
 
   getID() {
-    // this.telegram_id = this.telegram.tg?.initDataUnsafe?.user.id    
-    return this.telegram_id = "dsadas"
+    this.telegram_id = this.telegram.tg?.initDataUnsafe?.user.username    
+  }
+
+  getRequest() {
+    this.http.get('https://www.google.ru/?hl=ru')
+    .subscribe((response) => {      
+      console.log(response)
+    })
+    
+    
   }
 }
