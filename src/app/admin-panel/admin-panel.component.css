@@ -168,7 +168,7 @@ img {
 .view-card {
 }
 .block {
-	padding-top: 100px;
+	padding-top: 20px;
 }
 .view-card-top {
 	background: #8479FF;
@@ -235,3 +235,39 @@ img {
 	text-align: center;
 }
 
+.main-set {
+	padding: 100px 0px 0px 0px;
+	display: flex;
+	justify-content: space-between;
+
+}
+.main-set-bts {
+	display: flex;
+	gap: 10px;
+}
+.set-btn {
+	width: 60px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; 
+}
+.selected {
+	background: #8479FF;
+}
+.unlected {
+	border: 1px solid white;
+}
+.add-btn {
+	width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; 
+}
+.add-btn-text {
+	font-weight: 600;
+	font-size: 20px;
+}

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   template: '{{title}}'
 })
 export class AppComponent {
+  @Input('statusCodeCheck') statusCodeCheck = true
   title = 'web--admin--app';
+
+  constructor() {
+
+  }
 }

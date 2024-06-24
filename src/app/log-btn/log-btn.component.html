@@ -3,14 +3,17 @@
       <div class="gif-container">
           <img src="../../assets/img/8567d3c9292a86a8f106657a2454672d.gif" alt="">
       </div>
-      <div class="title-box">
+      <div class="title-box" *ngIf="check">
         <p class="sing_in-title">Добро пожаловать</p>
-        <a type="button" href="#" (click)="getID()" (click)="getRequest()">
+        <a type="button" href="#" (click)="getID()" (click)="authenticate()">
           <div class="sing-in-btn">
             <p class="btn-text">Войти</p>
           </div>
         </a>
-        <H1>Это - ID {{telegram_id}}</H1>
+      </div>
+      <div class="title-box" *ngIf="!check" >
+        <p class="sing_in-title">Ваш логин <a href="#" class="telegram-login">{{preLogin}}{{telegram_id}}</a></p>
+        <p class="sing_in-subtitle">Выполняется вход</p>
       </div>
   </div>
 </section>

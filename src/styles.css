@@ -168,7 +168,7 @@ img {
 .view-card {
 }
 .block {
-	padding-top: 100px;
+	padding-top: 20px;
 }
 .view-card-top {
 	background: #8479FF;
@@ -186,7 +186,6 @@ img {
 	border: 1px solid white;
 }
 .number {
-	font-family: Inter;
 	text-align: center;
 	font-weight: 600;
 	font-size: 16px;
@@ -205,14 +204,12 @@ img {
 	flex-direction: column;
 }
 .Telegram-id-title {
-	font-family: Inter;
 	font-weight: 600;
 	font-size: 16px;
 	text-align: center;
 	margin: 0;
 }
 .Telegram-id-subtitle {
-	font-family: Inter;
 	font-weight: 400;
 	font-size: 14px;
 	text-align: center;
@@ -228,28 +225,49 @@ img {
 
 }
 .stats-text-title {
-	font-family: Inter;
 	font-weight: 400;
 	font-size: 14px;
 	text-align: center;
 }
 .stats-text-subtitle {
-	font-family: Inter;
 	font-weight: 600;
 	font-size: 16px;
 	text-align: center;
 }
 
-.sing-in-btn{
-  width: 390px;
-  background: #8479FF;
-  height: 50px;
+.main-set {
+	padding: 100px 0px 0px 0px;
+	display: flex;
+	justify-content: space-between;
+
+}
+.main-set-bts {
+	display: flex;
+	gap: 10px;
+}
+.set-btn {
+	width: 60px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 15px;  
+  border-radius: 10px; 
 }
-
-h1 {
-	color: white;
+.selected {
+	background: #8479FF;
+}
+.unlected {
+	border: 1px solid white;
+}
+.add-btn {
+	width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px; 
+}
+.add-btn-text {
+	font-weight: 600;
+	font-size: 20px;
 }
