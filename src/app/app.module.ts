@@ -3,18 +3,23 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SingInComponent } from './sing-in/sing-in.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { LogBtnComponent } from './log-btn/log-btn.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FinanceComponent } from './finance/finance.component';
+import { UsersComponent } from './users/users.component';
+import { apiInterceptor } from './interceptors/api.interceptor';
+import { ModalComponent } from './modal/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingInComponent,
     AdminPanelComponent,
-    LogBtnComponent
+    LogBtnComponent,
+    FinanceComponent,
+    UsersComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,10 @@ import { FormsModule } from '@angular/forms';
     FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(
+    withInterceptors([apiInterceptor]),
+  )
   ],
   bootstrap: [AppComponent]
 })

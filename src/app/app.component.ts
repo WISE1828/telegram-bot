@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthenticateService } from './services/authenticate.service';
 
 
 @Component({
@@ -8,8 +9,9 @@ import { Component, Input } from '@angular/core';
   template: '{{title}}'
 })
 export class AppComponent {
-  @Input('statusCodeCheck') statusCodeCheck = true
-  title = 'web--admin--app';
+  authService = inject(AuthenticateService)
+
+
 
   constructor() {
 

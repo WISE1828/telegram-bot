@@ -1,0 +1,92 @@
+<div class="wrapper">
+  <div class="content">
+      <div class="container">
+          <div class="main-set">
+              <p class="Telegram-id-title">Пользователи:</p>
+              <div class="main-set-bts">
+                  <a type="button" href="#" (click)="menuOpenUser()">
+                      <div class="set-btn unlected" [ngClass]="{selected: check === 0}">
+                          <img src="/img/ph_user.svg" alt="">
+                      </div>
+                  </a>
+                  <a type="button" href="#" (click)="menuOpenStats()">
+                      <div class="set-btn unlected" [ngClass]="{selected: check === 2}">
+                          <img src="/img/basil_settings-adjust-outline.svg" alt="">
+                      </div>
+                  </a>
+                  <a type="button" href="#" (click)="openModal()">
+                      <div class="add-btn unlected">
+                          <p class="add-btn-text">+</p>
+                      </div>
+                  </a>
+              </div>
+          </div>
+          <app-modal class="modal" *ngIf="modalCheck === 3" (modalClose)="updateUsers($event)"></app-modal>
+          @if(check === 0){
+            <section class="main-view">
+              <div class="view-box">
+                  <div class="view-card ">
+                      <div class="block">
+                          <div class="view-card-top selected">
+                              <div class="all-card-items">
+                                  <div class="top-content">
+                                  <div class="card-number"><p class="number">1</p></div>
+                                  <div class="view-card-main-text">
+                                      <p class="Telegram-id-title">{{preLogin}}{{telegram_id}}</p>
+                                      <p class="Telegram-id-subtitle">{{telegram_first_name}} {{telegram_last_name}}</p>
+                                  </div>
+                              </div>
+                              </div>
+                              <div class="view-card-stats">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="view-card ">
+                      <div class="block" *ngFor="let user of users$ | async; let i = index">
+                          <div class="view-card-top unlected">
+                              <div class="all-card-items">
+                                  <div class="top-content">
+                                  <div class="card-number"><p class="number">{{i + 2}}</p></div>
+                                  <div class="view-card-main-text">
+                                      <p class="Telegram-id-title">{{preLogin}}{{user.telegram_id}}</p>
+                                      <p class="Telegram-id-subtitle">{{user.first_name}} {{user.last_name}}</p>
+                                  </div>
+                              </div>
+                              <a href="#" class="x-mark-btn" type="button" (click)="userDelete(user.user_id)"><div class="card-number"><p class="number">X</p></div></a>
+                              </div>
+                              <div class="view-card-stats">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          }@else(){
+            <section class="main-view">
+              <div class="view-box">
+                  <div class="view-card" *ngFor="let division of divisions$ | async">
+                      <div class="block">
+                          <div class="view-card-top selected">
+                              <div class="all-card-items">
+                                  <div class="top-content">
+                                  <div class="card-number"><img src="" alt=""></div>
+                                  <div class="view-card-main-text">
+                                      <p class="Telegram-id-title">{{division.role_name}}</p>
+                                  </div>
+                              </div>
+                              <a href="#" class="x-mark-btn"><div class="card-number"><p class="number">X</p></div></a>
+                              </div>
+                              <div class="view-card-stats">
+                                <input type="text" class="division-name" [placeholder]="division.name" #nameChange>
+                                <a href="#" class="x-mark-btn" type="button" (click)="changeName(nameChange.value)"><div class="card-number"><p class="number">V</p></div></a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          }
+      </div>
+  </div>
+</div>

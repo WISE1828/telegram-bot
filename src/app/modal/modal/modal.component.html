@@ -1,0 +1,19 @@
+<div class="view-card">
+  <div class="block">
+    <div class="view-card-top selected">
+      <div class="all-card-items">
+        <div class="top-content">
+          <div class="card-number"><img src="" alt=""></div>
+          <div class="view-card-main-text">
+            <p class="Telegram-id-title">Добавить пользователя ?</p>
+          </div>
+        </div>
+        <a href="#" class="x-mark-btn" (click)="modalClose.emit(false)"><div class="card-number"><p class="number">X</p></div></a>
+      </div>
+      <div class="view-card-stats">
+        <input type="text" class="division-name" placeholder="Telegram_ID" #inputTelegramID>
+        <a href="#" class="x-mark-btn" type="button" (click)="createUser(inputTelegramID.value)"><div class="card-number"><p class="number">V</p></div></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -311,9 +311,3 @@ img {
 	padding: 0px 0px 0px 10px;
 
 }
-
-.modal{
-	position: absolute;
-	inset: 0;
-	background-color: rgba(0, 0, 0, 0.829);
-}

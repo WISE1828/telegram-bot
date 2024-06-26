@@ -1,2 +1,6 @@
-<app-log-btn></app-log-btn>
-<!-- <app-admin-panel></app-admin-panel> -->
+@if(authService.statusCodeCheck|async){
+  <app-admin-panel></app-admin-panel>
+}@else {
+  <app-log-btn></app-log-btn>
+}
+
