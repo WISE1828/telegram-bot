@@ -11,6 +11,7 @@ import { FinanceComponent } from './finance/finance.component';
 import { UsersComponent } from './users/users.component';
 import { apiInterceptor } from './interceptors/api.interceptor';
 import { ModalComponent } from './modal/modal/modal.component';
+import { ModalFinanceComponent } from './modal/modal-finance/modal-finance.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ModalComponent } from './modal/modal/modal.component';
     LogBtnComponent,
     FinanceComponent,
     UsersComponent,
-    ModalComponent
+    ModalComponent,
+    ModalFinanceComponent
   ],
   imports: [
     BrowserModule,

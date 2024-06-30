@@ -38,8 +38,8 @@ export class UsersComponent implements OnInit {
     this.modalCheck = 3
   }
 
-  changeName(name: string){
-    this.request.patchDivision(name)
+  changeName(id: number, name: string){
+    this.request.patchDivision(id, name)
     .subscribe(()=>{
       this.divisions$ = this.request.getDivision()
     })

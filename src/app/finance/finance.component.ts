@@ -1,5 +1,7 @@
 import { Component,OnInit,inject } from '@angular/core';
 import { TelegramService } from '../services/telegram.service';
+import { RequestService, Tools } from '../services/request.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-finance',
@@ -7,22 +9,34 @@ import { TelegramService } from '../services/telegram.service';
   styleUrl: './finance.component.css'
 })
 export class FinanceComponent implements OnInit {
-  telegram = inject(TelegramService)
-  preLogin = '@'
-  telegram_id = " "
-  telegram_first_name = " "
-  telegram_last_name = " "
-  telegram_photo_url = " "
+  request = inject(RequestService)
+
+  tools$!:Observable<Tools[]>
   
+  modalCheck = 0
 
-  constructor(){
+  constructor(){}
 
+  openModal(){
+    this.modalCheck = 3
+  }
+
+  changeToolName(id: number, name: string){
+    this.request.patchTools(id, name).subscribe({error: (res)=>{
+      if(res.status === 201)
+        this.tools$ = this.request.getTools()
+    }})
+  }
+
+  updateTools(value: boolean){
+    this.modalCheck = 0
+    if(!value){
+      return
+    }
+    this.tools$ = this.request.getTools()
   }
 
   ngOnInit(): void {
-    this.telegram_id = this.telegram.tg?.initDataUnsafe?.user.username
-    this.telegram_first_name = this.telegram.tg?.initDataUnsafe?.user.first_name
-    this.telegram_last_name = this.telegram.tg?.initDataUnsafe?.user.last_name
-    this.telegram_photo_url = this.telegram.tg?.initDataUnsafe?.user.photo_url
+    this.tools$ = this.request.getTools()
   }
 }

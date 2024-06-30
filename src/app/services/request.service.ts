@@ -18,6 +18,11 @@ export interface User{
   telegram_id: string
 }
 
+export interface Tools {
+  id: number,
+  name: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,8 +30,8 @@ export class RequestService {
 
   constructor(private http: HttpClient) { }
 
-  patchDivision(name: string) {
-    return this.http.patch('divisions', {name})
+  patchDivision(id: number, name: string) {
+    return this.http.patch('divisions', {id, name})
   }
 
   public getDivision(): Observable<Division[]> {
@@ -43,6 +48,22 @@ export class RequestService {
 
   addUser(telegram_id: string){
     return this.http.post(`auth/${telegram_id}`,{})
+  }
+
+  public getTools(): Observable<Tools[]> {
+     return this.http.get<Tools[]>('finances/tools')
+  }
+
+  patchTools(id: number, name: string){
+    return this.http.patch('finances/tools', {id, name})
+  }
+
+  addTools(name: string){
+    return this.http.post(`finances/tools`,{name})
+  }
+
+  deleteServices(){
+    return this.http.delete(``)
   }
 
 }

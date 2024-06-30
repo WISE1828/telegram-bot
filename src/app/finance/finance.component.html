@@ -2,41 +2,39 @@
   <div class="content">
       <div class="container">
           <div class="main-set">
-              <p class="Telegram-id-title">Статистика:</p>
+              <p class="Telegram-id-title">Tools:</p>
               <div class="main-set-bts">
-                  <a type="button" href="#">
-                      <div class="set-btn selected">
-                          <img src="/img/ph_user.svg" alt="">
-                      </div>
-                  </a>
                   <a type="button" href="#">
                       <div class="set-btn unlected">
                           <img src="/img/basil_settings-adjust-outline.svg" alt="">
                       </div>
                   </a>
-                  <a type="button" href="#">
+                  <a type="button" href="#" (click)="openModal()">
                       <div class="add-btn unlected">
                           <p class="add-btn-text">+</p>
                       </div>
                   </a>
               </div>
           </div>
+          <app-modal-finance class="modal" *ngIf="modalCheck === 3" (modalClose)="updateTools($event)"></app-modal-finance>
           <section class="main-view">
               <div class="view-box">
                   <div class="view-card">
-                      <div class="block">
-                          <div class="view-card-top">
+                      <div class="block" *ngFor="let tool of tools$ | async;">
+                          <div class="view-card-top selected">
                               <div class="all-card-items">
                                   <div class="top-content">
-                                  <div class="card-number"><p class="number">1</p></div>
+                                  <div class="card-number"><img src="" alt=""></div>
                                   <div class="view-card-main-text">
-                                      <p class="Telegram-id-title">{{preLogin}}{{telegram_id}}</p>
-                                      <p class="Telegram-id-subtitle">{{telegram_first_name}} {{telegram_last_name}}</p>
+                                      <p class="Telegram-id-title">{{tool.name}}</p>
                                   </div>
                               </div>
                               <a href="#" class="x-mark-btn"><div class="card-number"><p class="number">X</p></div></a>
                               </div>
-                              <div class="view-card-stats"></div>
+                              <div class="view-card-stats">
+                                <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
+                                <a href="#" class="x-mark-btn" type="button" (click)="changeToolName(tool.id ,nameChange.value)"><div class="card-number"><p class="number">V</p></div></a>
+                              </div>
                           </div>
                       </div>
                   </div>

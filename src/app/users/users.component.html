@@ -2,7 +2,7 @@
   <div class="content">
       <div class="container">
           <div class="main-set">
-              <p class="Telegram-id-title">Пользователи:</p>
+              <p class="Telegram-id-title">Обзор:</p>
               <div class="main-set-bts">
                   <a type="button" href="#" (click)="menuOpenUser()">
                       <div class="set-btn unlected" [ngClass]="{selected: check === 0}">
@@ -75,11 +75,10 @@
                                       <p class="Telegram-id-title">{{division.role_name}}</p>
                                   </div>
                               </div>
-                              <a href="#" class="x-mark-btn"><div class="card-number"><p class="number">X</p></div></a>
                               </div>
                               <div class="view-card-stats">
                                 <input type="text" class="division-name" [placeholder]="division.name" #nameChange>
-                                <a href="#" class="x-mark-btn" type="button" (click)="changeName(nameChange.value)"><div class="card-number"><p class="number">V</p></div></a>
+                                <a href="#" class="x-mark-btn" type="button" (click)="changeName(division.id, nameChange.value)"><div class="card-number"><p class="number">V</p></div></a>
                               </div>
                           </div>
                       </div>
