@@ -5,24 +5,24 @@
               <p class="Telegram-id-title">Обзор:</p>
               <div class="main-set-bts">
                   <a type="button" href="#" (click)="menuOpenUser()">
-                      <div class="set-btn unlected" [ngClass]="{selected: check === 0}">
-                          <img src="/img/ph_user.svg" alt="">
+                      <div class="set-btn unlected" [ngClass]="{selected: check() === 0}">
+                          <img src="../../assets/img/ph_user.svg" alt="">
                       </div>
                   </a>
                   <a type="button" href="#" (click)="menuOpenStats()">
-                      <div class="set-btn unlected" [ngClass]="{selected: check === 2}">
-                          <img src="/img/basil_settings-adjust-outline.svg" alt="">
+                      <div class="set-btn unlected" [ngClass]="{selected: check() === 2}">
+                          <img src="../../assets/img/basil_settings-adjust-outline.svg" alt="">
                       </div>
                   </a>
                   <a type="button" href="#" (click)="openModal()">
                       <div class="add-btn unlected">
-                          <p class="add-btn-text">+</p>
+                        <img src="../../assets/img/ic_round-plus.svg" alt="">
                       </div>
                   </a>
               </div>
           </div>
           <app-modal class="modal" *ngIf="modalCheck === 3" (modalClose)="updateUsers($event)"></app-modal>
-          @if(check === 0){
+          @if(check() === 0){
             <section class="main-view">
               <div class="view-box">
                   <div class="view-card ">
@@ -53,7 +53,7 @@
                                       <p class="Telegram-id-subtitle">{{user.first_name}} {{user.last_name}}</p>
                                   </div>
                               </div>
-                              <a href="#" class="x-mark-btn" type="button" (click)="userDelete(user.user_id)"><div class="card-number"><p class="number">X</p></div></a>
+                              <a href="#" class="x-mark-btn" type="button" (click)="userDelete(user.user_id)"><div class="card-number"><img src="../../assets/img/iconoir_xmark.svg" alt=""></div></a>
                               </div>
                               <div class="view-card-stats">
                               </div>
@@ -70,7 +70,7 @@
                           <div class="view-card-top selected">
                               <div class="all-card-items">
                                   <div class="top-content">
-                                  <div class="card-number"><img src="" alt=""></div>
+                                  <div class="card-number"><img src="../../assets/img/mingcute_department-line.svg" alt=""></div>
                                   <div class="view-card-main-text">
                                       <p class="Telegram-id-title">{{division.role_name}}</p>
                                   </div>
@@ -78,7 +78,7 @@
                               </div>
                               <div class="view-card-stats">
                                 <input type="text" class="division-name" [placeholder]="division.name" #nameChange>
-                                <a href="#" class="x-mark-btn" type="button" (click)="changeName(division.id, nameChange.value)"><div class="card-number"><p class="number">V</p></div></a>
+                                <a href="#" class="x-mark-btn" type="button" (click)="changeName(division.id, nameChange.value)"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
                               </div>
                           </div>
                       </div>

@@ -1,4 +1,4 @@
-import { Component,OnInit,inject } from '@angular/core';
+import { Component,OnInit,inject, signal } from '@angular/core';
 import { TelegramService } from '../services/telegram.service';
 import { Division, RequestService, User } from '../services/request.service';
 import { Observable } from 'rxjs';
@@ -21,17 +21,17 @@ export class UsersComponent implements OnInit {
   telegram_first_name = " "
   telegram_last_name = " "
   telegram_photo_url = " "
-  check = 0
+  check = signal(0)
   modalCheck = 0
 
   constructor(){ }
 
   menuOpenUser(){
-    this.check = 0
+    this.check.set(0)
   }
 
   menuOpenStats(){
-    this.check = 2
+    this.check.set(2)
   }
 
   openModal(){
