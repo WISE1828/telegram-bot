@@ -65,9 +65,9 @@ export class UsersComponent implements OnInit {
     this.divisions$ = this.request.getDivision()
     this.users$ = this.request.getUsers()
 
-    this.telegram_id = this.telegram.tg?.initDataUnsafe?.user.username
-    this.telegram_first_name = this.telegram.tg?.initDataUnsafe?.user.first_name
-    this.telegram_last_name = this.telegram.tg?.initDataUnsafe?.user.last_name
-    this.telegram_photo_url = this.telegram.tg?.initDataUnsafe?.user.photo_url
+    this.telegram_id = this.telegram.tg?.initDataUnsafe?.user?.username
+    this.telegram_first_name = this.telegram.tg?.initDataUnsafe?.user?.first_name
+    this.telegram_last_name = this.telegram.tg?.initDataUnsafe?.user?.last_name
+    this.telegram_photo_url = this.telegram.tg?.initDataUnsafe?.user?.photo_url
   }
 }
