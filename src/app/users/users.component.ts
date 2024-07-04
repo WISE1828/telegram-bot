@@ -45,6 +45,13 @@ export class UsersComponent implements OnInit {
     })
   }
 
+  divisionDelete(value: number){
+    this.request.deleteDivision(value).subscribe({error: (res)=>{
+      if(res.status === 200)
+        this.divisions$ = this.request.getDivision()
+    }})
+  }
+
   userDelete(value: number){
     this.request.deleteUser(value).subscribe({error: (res)=>{
       if(res.status === 200)

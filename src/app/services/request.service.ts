@@ -5,8 +5,6 @@ import { BehaviorSubject, Observable, timer } from 'rxjs';
 export interface Division{
   id: number,
   name: string, 
-  role_id: number, 
-  role_name: string
 }
 
 export interface User{
@@ -38,6 +36,10 @@ export class RequestService {
     return this.http.get<Division[]>('divisions')
   }
 
+  deleteDivision(id: number){
+    return this.http.delete(`divisions/${id}`)
+  }
+
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>('auth/')
   }
@@ -62,8 +64,8 @@ export class RequestService {
     return this.http.post(`finances/tools`,{name})
   }
 
-  deleteServices(){
-    return this.http.delete(``)
+  deleteServices(id: number){
+    return this.http.delete(`finances/tools/${id}`)
   }
 
 }

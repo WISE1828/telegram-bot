@@ -1,4 +1,4 @@
 export const environment = {
   x_api_key:"hFb-IWQyTBeNwiluk2SMKQ",
-  API_URL: "https://5.187.5.176:1337/api/v1/"
+  API_URL: "https://adertas.ru/api/v1/"
 };

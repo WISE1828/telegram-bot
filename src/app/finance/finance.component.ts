@@ -36,6 +36,13 @@ export class FinanceComponent implements OnInit {
     this.tools$ = this.request.getTools()
   }
 
+  servicerDelete(value: number){
+    this.request.deleteServices(value).subscribe({error: (res)=>{
+      if(res.status === 200)
+        this.tools$ = this.request.getTools()
+    }})
+  }
+
   ngOnInit(): void {
     this.tools$ = this.request.getTools()
   }
