@@ -21,8 +21,8 @@
                   </a>
               </div>
           </div>
-          <app-modal class="modal" *ngIf="modalCheck === 3" (modalClose)="updateUsers($event)"></app-modal>
           @if(check() === 0){
+            <app-modal class="modal" *ngIf="modalCheck === 3" (modalClose)="updateUsers($event)"></app-modal>
             <section class="main-view">
               <div class="view-box">
                   <div class="view-card ">
@@ -63,6 +63,7 @@
               </div>
           </section>
           }@else(){
+            <app-modal-division class="modal" *ngIf="modalCheck === 3" (modalClose)="updateDivision($event)"></app-modal-division>
             <section class="main-view">
               <div class="view-box">
                   <div class="view-card" *ngFor="let division of divisions$ | async">

@@ -32,6 +32,10 @@ export class RequestService {
     return this.http.patch('divisions', {id, name})
   }
 
+  addDivision(name: string){
+    return this.http.post(`divisions/`,{name})
+  }
+
   public getDivision(): Observable<Division[]> {
     return this.http.get<Division[]>('divisions')
   }

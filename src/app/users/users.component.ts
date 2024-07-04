@@ -68,6 +68,14 @@ export class UsersComponent implements OnInit {
     this.users$ = this.request.getUsers()
   }
 
+  updateDivision(value: boolean){
+    this.modalCheck = 0
+    if(!value){
+      return
+    }
+    this.divisions$ = this.request.getDivision()
+  }  
+
   ngOnInit(): void {
     this.divisions$ = this.request.getDivision()
     this.users$ = this.request.getUsers()
