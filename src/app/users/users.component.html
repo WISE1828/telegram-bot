@@ -43,11 +43,12 @@
                       </div>
                   </div>
                   <div class="view-card ">
-                      <div class="block" *ngFor="let user of users$ | async; let i = index">
+                      <ng-container *ngFor="let user of users$ | async;">
+                        <div class="block" *ngIf="user.telegram_id != telegram_id">
                           <div class="view-card-top unlected">
                               <div class="all-card-items">
                                   <div class="top-content">
-                                  <div class="card-number"><p class="number">{{i + 2}}</p></div>
+                                  <div class="card-number"><p class="number">{{user.user_id}}</p></div>
                                   <div class="view-card-main-text">
                                       <p class="Telegram-id-title">{{preLogin}}{{user.telegram_id}}</p>
                                       <p class="Telegram-id-subtitle">{{user.first_name}} {{user.last_name}}</p>
@@ -59,6 +60,7 @@
                               </div>
                           </div>
                       </div>
+                      </ng-container>
                   </div>
               </div>
           </section>

@@ -23,7 +23,7 @@ export class FinanceComponent implements OnInit {
 
   changeToolName(id: number, name: string){
     this.request.patchTools(id, name).subscribe({error: (res)=>{
-      if(res.status === 201)
+      if(res.status === 200)
         this.tools$ = this.request.getTools()
     }})
   }

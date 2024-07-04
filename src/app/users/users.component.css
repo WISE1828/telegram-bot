@@ -179,15 +179,15 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 32px;
-	height: 32px;
+	width: 40px;
+	height: 40px;
 	border-radius: 32px;
 	border: 1px solid white;
 }
 .number {
 	text-align: center;
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 14px;
 }
 
 .top-content{

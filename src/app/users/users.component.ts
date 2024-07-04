@@ -39,10 +39,10 @@ export class UsersComponent implements OnInit {
   }
 
   changeName(id: number, name: string){
-    this.request.patchDivision(id, name)
-    .subscribe(()=>{
-      this.divisions$ = this.request.getDivision()
-    })
+    this.request.patchDivision(id, name).subscribe({error: (res)=>{
+      if(res.status === 200)
+        this.divisions$ = this.request.getDivision()
+    }})
   }
 
   divisionDelete(value: number){
