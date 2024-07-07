@@ -12,13 +12,19 @@ export interface User{
   user_id: number,
   first_name: string,
   last_name: string,
-  image_url: string
+  image_url: string,
   telegram_id: string
 }
 
 export interface Tools {
   id: number,
   name: string
+}
+
+export interface Limits {
+  id: number,
+  telegram_id: string,
+  Limit: number
 }
 
 @Injectable({
@@ -71,5 +77,9 @@ export class RequestService {
   deleteServices(id: number){
     return this.http.delete(`finances/tools/${id}`)
   }
+
+  public getLimits(): Observable<Limits[]> {
+    return this.http.get<Limits[]>('')
+ }
 
 }

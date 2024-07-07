@@ -2,12 +2,17 @@
   <div class="content">
       <div class="container">
           <div class="main-set">
-              <p class="Telegram-id-title">Tools:</p>
+              <p class="Telegram-id-title">{{titleName()}}:</p>
               <div class="main-set-bts">
-                  <a type="button" href="#">
-                      <div class="set-btn selected">
+                  <a type="button" href="#" (click)="menuOpenTools()">
+                      <div class="set-btn unlected" [ngClass]="{selected: check() === 0}">
                           <img src="../../assets/img/basil_settings-adjust-outline.svg" alt="">
                       </div>
+                  </a>
+                  <a type="button" href="#" (click)="menuOpenLimits()">
+                    <div class="set-btn unlected" [ngClass]="{selected: check() === 2}">
+                        <img src="" alt="">
+                    </div>
                   </a>
                   <a type="button" href="#" (click)="openModal()">
                       <div class="add-btn unlected">
@@ -16,30 +21,78 @@
                   </a>
               </div>
           </div>
-          <app-modal-finance class="modal" *ngIf="modalCheck === 3" (modalClose)="updateTools($event)"></app-modal-finance>
-          <section class="main-view">
-              <div class="view-box">
-                  <div class="view-card">
-                      <div class="block" *ngFor="let tool of tools$ | async;">
-                          <div class="view-card-top selected">
-                              <div class="all-card-items">
-                                  <div class="top-content">
-                                  <div class="card-number"><img src="../../assets/img/basil_asana-outline.svg" alt=""></div>
-                                  <div class="view-card-main-text">
-                                      <p class="Telegram-id-title">{{tool.name}}</p>
-                                  </div>
-                              </div>
-                              <a href="#" class="x-mark-btn" type="button" (click)="servicerDelete(tool.id)"><div class="card-number"><img src="../../assets/img/iconoir_xmark.svg" alt=""></div></a>
-                              </div>
-                              <div class="view-card-stats">
+          @if(check() === 0){
+        <app-modal-finance class="modal" *ngIf="modalCheck === 3" (modalClose)="updateTools($event)"></app-modal-finance>
+        <section class="main-view">
+            <div class="view-box">
+                <div class="view-card">
+                    <div class="block" *ngFor="let tool of tools$ | async;">
+                        <div class="view-card-top selected">
+                            <div class="all-card-items">
+                                <div class="top-content">
+                                <div class="card-number"><img src="../../assets/img/basil_asana-outline.svg" alt=""></div>
+                                <div class="view-card-main-text">
+                                    <p class="Telegram-id-title">{{tool.name}}</p>
+                                </div>
+                            </div>
+                            <a href="#" class="x-mark-btn" type="button" (click)="servicerDelete(tool.id)"><div class="card-number"><img src="../../assets/img/iconoir_xmark.svg" alt=""></div></a>
+                            </div>
+                            <div class="view-card-stats">
                                 <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
                                 <a href="#" class="x-mark-btn" type="button" (click)="changeToolName(tool.id ,nameChange.value)"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        }@else {
+        <app-modal-finance class="modal" *ngIf="modalCheck === 3" (modalClose)="updateTools($event)"></app-modal-finance>
+        <section class="main-view">
+            <div class="view-box">
+                <div class="view-card">
+                    <div class="block">
+                        <div class="view-card-top selected">
+                            <div class="all-card-items">
+                                <div class="top-content">
+                                <div class="card-number"><img src="" alt=""></div>
+                                <div class="view-card-main-text">
+                                    <p class="Telegram-id-title">Тест</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="view-card-stats">
+                                <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
+                                <a href="#" class="x-mark-btn" type="button"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="main-view">
+            <div class="view-box">
+                <div class="view-card">
+                    <div class="block">
+                        <div class="view-card-top selected">
+                            <div class="all-card-items">
+                                <div class="top-content">
+                                <div class="card-number"><img src="" alt=""></div>
+                                <div class="view-card-main-text">
+                                    <p class="Telegram-id-title">Тест</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="view-card-stats">
+                                <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
+                                <a href="#" class="x-mark-btn" type="button"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        }
       </div>
   </div>
 </div>

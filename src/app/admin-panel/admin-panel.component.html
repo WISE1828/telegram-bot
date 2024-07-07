@@ -6,13 +6,14 @@
                     <img src="{{telegram_photo_url}}" alt="">
                 </a>
                 <div class="menu">
-                    <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
+                    <input type="checkbox" id="burger-checkbox" class="burger-checkbox" [(ngModel)]="burgerCheck">
                     <label for="burger-checkbox" class="burger"></label>
+                    <div class="menu-bg" [hidden]="!burgerCheck" (click)="burgerCheck = false"></div>
                     <ul class="menu-list">
                         <div class="menu-list-flex">
-                            <li><a href="#" class="menu-item" type="button" (click)="menuOpenUser()"><img src="/img/bi_view-list.svg" alt="">Общее</a><li>
-                            <li><a href="#" class="menu-item" type="button" (click)="menuOpenFinance()"><img src="/img/material-symbols-light_finance-sharp.svg" alt="">Финансы</a><li></li>
-                            <li><a href="#" class="menu-item"><img src="/img/bx_purchase-tag-alt.svg" alt="">Баинг</a><li>
+                            <li><a href="#" class="menu-item" type="button" (click)="menuOpenUser()"><img src="../../assets/img/bi_view-list.svg" alt="">Общее</a><li>
+                            <li><a href="#" class="menu-item" type="button" (click)="menuOpenFinance()"><img src="../../assets/img/material-symbols-light_finance-sharp.svg" alt="">Финансы</a><li></li>
+                            <li><a href="#" class="menu-item"><img src="../../assets/img/bx_purchase-tag-alt.svg" alt="">Баинг</a><li>
                         </div>
                     </ul>
                 </div>

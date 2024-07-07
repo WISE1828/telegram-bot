@@ -1,4 +1,4 @@
-import { Component,OnInit,inject } from '@angular/core';
+import { Component,OnInit,inject, signal } from '@angular/core';
 import { TelegramService } from '../services/telegram.service';
 import { RequestService, Tools } from '../services/request.service';
 import { Observable } from 'rxjs';
@@ -14,11 +14,29 @@ export class FinanceComponent implements OnInit {
   tools$!:Observable<Tools[]>
   
   modalCheck = 0
-
+  check = signal(0)
+  title = " "
+  
   constructor(){}
+
+  titleName(){
+    if(this.check() === 0){
+      return this.title = "Tools"
+    }else{
+      return this.title = "Лимиты"
+    }
+  }
 
   openModal(){
     this.modalCheck = 3
+  }
+
+  menuOpenTools(){
+    this.check.set(0)
+  }
+
+  menuOpenLimits(){
+    this.check.set(2)
   }
 
   changeToolName(id: number, name: string){

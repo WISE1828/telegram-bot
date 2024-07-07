@@ -21,6 +21,7 @@ export class AuthenticateService {
     }   
   
   authenticate() {
+    this.statusCodeCheck.next(true)
     timer(0).subscribe(()=>{
       this.getRequest()
       .subscribe({error: (res)=>{

@@ -23,8 +23,17 @@ export class UsersComponent implements OnInit {
   telegram_photo_url = " "
   check = signal(0)
   modalCheck = 0
+  title = " "
 
   constructor(){ }
+
+  titleName(){
+    if(this.check() === 0){
+      return this.title = "Пользователи"
+    }else{
+      return this.title = "Отделы"
+    }
+  }
 
   menuOpenUser(){
     this.check.set(0)

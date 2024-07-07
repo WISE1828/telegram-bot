@@ -116,6 +116,14 @@ img {
 	transform: rotate(-45deg);
 	transition: bottom 0.3s, transform 0.3s 0.15s;
 } */
+
+.menu-bg {
+	position: absolute;
+	inset: 0;
+	background-color: rgb(0, 0, 0);
+	opacity: 0.5;
+}
+
 .menu-list {
 	top: 0;
 	left: 0;
