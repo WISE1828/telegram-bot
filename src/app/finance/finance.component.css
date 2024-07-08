@@ -179,20 +179,22 @@ img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 32px;
-	height: 32px;
+	width: 40px;
+	height: 40px;
 	border-radius: 32px;
 	border: 1px solid white;
+	color: white;
 }
 .number {
 	text-align: center;
 	font-weight: 600;
 	font-size: 16px;
+	
 }
 
 .top-content{
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	padding: 20px 20px;
 	gap: 15px;
 
@@ -280,8 +282,9 @@ img {
 
 .view-card-stats {
 	display: flex;
-	padding: 87px 25px 0px 25px;
+	padding: 80px 25px 0px 25px;
 	justify-content: space-between;
+	align-items: center;
 
 }
 
@@ -302,14 +305,29 @@ img {
 	font-weight: 400;
 	font-size: 14px;
 	color: white;
+	padding: 0px 0px 0px 10px;
 	
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent
+}
+
+:focus::-moz-placeholder {
+  color: transparent
+}
+
+:focus:-moz-placeholder {
+  color: transparent
+}
+
+:focus:-ms-input-placeholder {
+  color: transparent
 }
 
 .division-name:focus{
 	box-shadow: none;
 	background-color: #7167e0;
-	padding: 0px 0px 0px 10px;
-
 }
 
 .modal{
@@ -320,4 +338,34 @@ img {
 	position: absolute;
 	inset: 0;
 	background-color: rgba(0, 0, 0, 0.829);
+}
+
+.input-box{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.limits-btn {
+	border-radius: 10px;
+	width: 350px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 400;
+	font-size: 14px;
+
+}
+
+.limits-title {
+	color: #fff;
+}
+
+.view-card-limits {
+	padding: 40px 20px 0px 20px;
+}
+
+.limit-bg{
+	background-color: black !important;
 }

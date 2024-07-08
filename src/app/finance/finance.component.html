@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="limits$ | async as limits">
   <div class="content">
       <div class="container">
           <div class="main-set">
@@ -6,12 +6,12 @@
               <div class="main-set-bts">
                   <a type="button" href="#" (click)="menuOpenTools()">
                       <div class="set-btn unlected" [ngClass]="{selected: check() === 0}">
-                          <img src="../../assets/img/basil_settings-adjust-outline.svg" alt="">
+                          <img src="../../assets/img/gear.svg" alt="">
                       </div>
                   </a>
                   <a type="button" href="#" (click)="menuOpenLimits()">
                     <div class="set-btn unlected" [ngClass]="{selected: check() === 2}">
-                        <img src="" alt="">
+                        <img src="../../assets/img/noun-lock-684872 1.svg" alt="">
                     </div>
                   </a>
                   <a type="button" href="#" (click)="openModal()">
@@ -52,46 +52,55 @@
             <div class="view-box">
                 <div class="view-card">
                     <div class="block">
-                        <div class="view-card-top selected">
+                        <div class="view-card-top unlected">
                             <div class="all-card-items">
                                 <div class="top-content">
-                                <div class="card-number"><img src="" alt=""></div>
-                                <div class="view-card-main-text">
-                                    <p class="Telegram-id-title">Тест</p>
+                                    <div class="card-number">1</div>
+                                    <div class="input-box">
+                                        <input type="text" class="division-name limit-bg" [placeholder]="limits[0].telegram_id" #telegramIdChange1>
+                                        <input type="number" class="division-name limit-bg" [placeholder]="limits[0].value" #limitChange1>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="view-card-stats">
-                                <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
-                                <a href="#" class="x-mark-btn" type="button"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
+                            <div class="view-card-limits">
+                                <a type="button" href="#" (click)="changeLimit(1, limits[0].user_id, telegramIdChange1.value, +limitChange1.value)">
+                                    <div class="limits-btn selected">
+                                        <p class="limits -title">Изменить</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="main-view">
+       <section class="main-view">
             <div class="view-box">
                 <div class="view-card">
                     <div class="block">
-                        <div class="view-card-top selected">
+                        <div class="view-card-top unlected">
                             <div class="all-card-items">
                                 <div class="top-content">
-                                <div class="card-number"><img src="" alt=""></div>
-                                <div class="view-card-main-text">
-                                    <p class="Telegram-id-title">Тест</p>
+                                    <div class="card-number">2</div>
+                                    <div class="input-box">
+                                        <input type="text" class="division-name limit-bg" [placeholder]="limits[1].telegram_id" #telegramIdChange2>
+                                        <input type="text" class="division-name limit-bg" [placeholder]="limits[1].value" #limitChange2>
+                                    </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="view-card-stats">
-                                <input type="text" class="division-name" placeholder="Изменить название" #nameChange>
-                                <a href="#" class="x-mark-btn" type="button"><div class="card-number"><img src="../../assets/img/iconamoon_check.svg" alt=""></div></a>
+                            <div class="view-card-limits">
+                                <a type="button" href="#" (click)="changeLimit(2, limits[1].user_id, telegramIdChange2.value, +limitChange2.value)">
+                                    <div class="limits-btn selected">
+                                        <p class="limits -title">Изменить</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <app-limits-push *ngIf="pushVis"></app-limits-push>
         }
       </div>
   </div>

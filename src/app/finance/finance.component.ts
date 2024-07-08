@@ -1,7 +1,7 @@
 import { Component,OnInit,inject, signal } from '@angular/core';
 import { TelegramService } from '../services/telegram.service';
-import { RequestService, Tools } from '../services/request.service';
-import { Observable } from 'rxjs';
+import { Limits, RequestService, Tools } from '../services/request.service';
+import { Observable, timer } from 'rxjs';
 
 @Component({
   selector: 'app-finance',
@@ -11,11 +11,14 @@ import { Observable } from 'rxjs';
 export class FinanceComponent implements OnInit {
   request = inject(RequestService)
 
-  tools$!:Observable<Tools[]>
+  tools$!: Observable<Tools[]>
+  limits$!: Observable<Limits[]>
+  pushTimer$ = timer(1000)
   
   modalCheck = 0
   check = signal(0)
   title = " "
+  pushVis = false
   
   constructor(){}
 
@@ -26,6 +29,7 @@ export class FinanceComponent implements OnInit {
       return this.title = "Лимиты"
     }
   }
+
 
   openModal(){
     this.modalCheck = 3
@@ -61,7 +65,20 @@ export class FinanceComponent implements OnInit {
     }})
   }
 
+  changeLimit(id: number, user_id: number, telegram_id: string, value: number){
+    this.request.postLimits(id, user_id, telegram_id, value).subscribe({error: (res)=>{
+      if(res.status === 200){
+        this.limits$ = this.request.getLimits()
+        this.pushVis = true
+        this.pushTimer$.subscribe(()=>{
+          this.pushVis = false
+        })
+      } 
+    }})
+  }
+
   ngOnInit(): void {
     this.tools$ = this.request.getTools()
+    this.limits$ = this.request.getLimits()
   }
 }

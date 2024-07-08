@@ -312,8 +312,11 @@ img {
 
 }
 
+
 .modal{
 	position: absolute;
 	inset: 0;
 	background-color: rgba(0, 0, 0, 0.829);
 }
+
+input {outline:none;}

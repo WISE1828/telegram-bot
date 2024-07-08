@@ -1,0 +1,37 @@
+.view-card-stats {
+	display: flex;
+	padding: 87px 25px 0px 25px;
+	justify-content: space-between;
+	gap: 20px;
+
+}
+
+.division-name::placeholder{
+	font-family: Inter;
+	font-weight: 400;
+	font-size: 14px;
+	color: white;
+	padding: 0px 0px 0px 10px;
+	
+}
+
+.division-name:focus{
+	box-shadow: none;
+	background-color: #7167e0;
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent
+}
+
+:focus::-moz-placeholder {
+  color: transparent
+}
+
+:focus:-moz-placeholder {
+  color: transparent
+}
+
+:focus:-ms-input-placeholder {
+  color: transparent
+}

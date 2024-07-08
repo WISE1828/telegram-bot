@@ -13,6 +13,7 @@ import { apiInterceptor } from './interceptors/api.interceptor';
 import { ModalComponent } from './modal/modal/modal.component';
 import { ModalFinanceComponent } from './modal/modal-finance/modal-finance.component';
 import { ModalDivisionComponent } from './modal/modal-division/modal-division.component';
+import { LimitsPushComponent } from './modal/limits-push/limits-push.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModalDivisionComponent } from './modal/modal-division/modal-division.co
     UsersComponent,
     ModalComponent,
     ModalFinanceComponent,
-    ModalDivisionComponent
+    ModalDivisionComponent,
+    LimitsPushComponent
   ],
   imports: [
     BrowserModule,

@@ -23,8 +23,9 @@ export interface Tools {
 
 export interface Limits {
   id: number,
+  user_id: number,
   telegram_id: string,
-  Limit: number
+  value: number
 }
 
 @Injectable({
@@ -79,7 +80,11 @@ export class RequestService {
   }
 
   public getLimits(): Observable<Limits[]> {
-    return this.http.get<Limits[]>('')
+    return this.http.get<Limits[]>('/finances/limits')
  }
+
+  postLimits(id: number, user_id: number, telegram_id: string, value: number){
+    return this.http.post("/finances/limits", {id, user_id, telegram_id, value})
+  } 
 
 }

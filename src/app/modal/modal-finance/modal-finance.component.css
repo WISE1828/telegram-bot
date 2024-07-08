@@ -282,6 +282,7 @@ img {
 	display: flex;
 	padding: 87px 25px 0px 25px;
 	justify-content: space-between;
+	gap: 20px;
 
 }
 
@@ -302,12 +303,29 @@ img {
 	font-weight: 400;
 	font-size: 14px;
 	color: white;
+	padding: 0px 0px 0px 10px;
 	
 }
 
 .division-name:focus{
 	box-shadow: none;
 	background-color: #7167e0;
-	padding: 0px 0px 0px 10px;
+	
 
+}
+
+:focus::-webkit-input-placeholder {
+  color: transparent
+}
+
+:focus::-moz-placeholder {
+  color: transparent
+}
+
+:focus:-moz-placeholder {
+  color: transparent
+}
+
+:focus:-ms-input-placeholder {
+  color: transparent
 }

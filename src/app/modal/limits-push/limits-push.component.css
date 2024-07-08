@@ -1,0 +1,23 @@
+.limits-box{
+  margin-top: 200px;
+}
+
+.limits-push {
+  border-radius: 10px;
+  width: 390px;
+  height: 50px;
+  background: #8479ff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 0px 0px 108px;
+  
+}
+.push-title {
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+}
+.push-icon {
+  padding: 0px 20px 0px 0px ;
+}
